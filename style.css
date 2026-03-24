@@ -1,0 +1,541 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #0f172a;
+    --bg-accent: #172554;
+    --panel: rgba(15, 23, 42, 0.76);
+    --panel-soft: rgba(255, 255, 255, 0.1);
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --brand: #22c55e;
+    --brand-strong: #14b8a6;
+    --brand-warm: #f97316;
+    --line: rgba(148, 163, 184, 0.18);
+    --shadow: 0 24px 70px rgba(2, 6, 23, 0.34);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(20, 184, 166, 0.16), transparent 28%),
+        linear-gradient(145deg, #020617 0%, #0f172a 42%, #111827 100%);
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+hr {
+    display: none;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 18px clamp(18px, 4vw, 48px);
+    backdrop-filter: blur(18px);
+    background: rgba(2, 6, 23, 0.72);
+    border-bottom: 1px solid var(--line);
+}
+
+.brand-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 0;
+}
+
+.logo {
+    width: clamp(170px, 19vw, 240px);
+    height: auto;
+    padding-left: 0;
+    margin-top: 0;
+    filter: drop-shadow(0 16px 26px rgba(20, 184, 166, 0.22));
+}
+
+.landing-shell {
+    padding: 28px clamp(18px, 4vw, 52px) 0;
+}
+
+.hero-banner,
+.map-card,
+.heading .container,
+.footer-card {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+}
+
+.hero-banner {
+    border-radius: 32px;
+    padding: clamp(28px, 5vw, 48px);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: auto -80px -80px auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.34), transparent 70%);
+    pointer-events: none;
+}
+
+.eyebrow {
+    display: inline-flex;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(34, 197, 94, 0.14);
+    color: #bbf7d0;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.hero-banner h1 {
+    font-size: clamp(2.4rem, 5vw, 4.8rem);
+    line-height: 0.95;
+    font-weight: 800;
+    max-width: 8ch;
+    margin-bottom: 16px;
+}
+
+.hero-banner p {
+    max-width: 56ch;
+    color: var(--muted);
+    font-size: 1.02rem;
+    margin-bottom: 0;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 26px;
+}
+
+.hero-stat {
+    min-width: 150px;
+    padding: 16px 18px;
+    border-radius: 20px;
+    background: var(--panel-soft);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-stat strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.hero-stat span {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.map-card {
+    margin-top: 24px;
+    border-radius: 32px;
+    padding: clamp(22px, 4vw, 34px);
+}
+
+.map-card h2,
+.map-card p,
+.generator-intro h2,
+.generator-intro p {
+    color: var(--text);
+}
+
+.map-card p,
+.generator-intro p {
+    color: #cbd5e1;
+}
+
+.generator-shell {
+    margin-top: 26px;
+}
+
+.generator-intro {
+    margin-bottom: 16px;
+}
+
+.generator-intro h2 {
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.generator-intro p {
+    color: var(--muted);
+    max-width: 70ch;
+}
+
+.generator-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+    gap: 22px;
+}
+
+.generator-panel,
+.generator-output {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+    border-radius: 28px;
+    padding: 24px;
+}
+
+.generator-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.generator-group label {
+    color: var(--text);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.generator-group select {
+    appearance: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(15, 23, 42, 0.95);
+    color: #f8fafc;
+    border-radius: 16px;
+    padding: 14px 16px;
+    outline: none;
+}
+
+.generator-group select:focus {
+    border-color: rgba(34, 197, 94, 0.7);
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.14);
+}
+
+.generator-group select option {
+    background: #0f172a;
+    color: #f8fafc;
+}
+
+.generator-button {
+    width: 100%;
+    border: none;
+    border-radius: 18px;
+    padding: 15px 18px;
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-strong) 100%);
+    color: #03130a;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+
+.generator-placeholder {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.generator-placeholder h3,
+.plan-header h3 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.generator-placeholder p,
+.plan-header p,
+.plan-meta span,
+.exercise-meta,
+.day-card p {
+    color: var(--muted);
+}
+
+.plan-header {
+    margin-bottom: 18px;
+}
+
+.plan-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.plan-meta span {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.84rem;
+}
+
+.exercise-list,
+.weekly-list {
+    display: grid;
+    gap: 14px;
+}
+
+.exercise-card,
+.day-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 22px;
+    padding: 18px;
+}
+
+.exercise-card h4,
+.day-card h4 {
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.exercise-meta {
+    font-size: 0.92rem;
+    margin-bottom: 10px;
+}
+
+.exercise-card a,
+.day-card a {
+    color: #86efac;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.exercise-card a:hover,
+.day-card a:hover,
+.utility-link:hover {
+    color: #bbf7d0;
+}
+
+.utility-link {
+    color: #e2e8f0;
+}
+
+.map-card h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.map-card p {
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.body-map__muscle path {
+    fill: #e2e8f0;
+    transition: fill 0.2s ease, transform 0.2s ease;
+}
+
+.body-map__muscle path:hover {
+    fill: var(--brand-warm);
+}
+
+.heading {
+    color: var(--text);
+    background: transparent !important;
+    padding: 30px 18px 8px;
+}
+
+.heading .container {
+    max-width: 1120px;
+    border-radius: 28px;
+    padding: clamp(18px, 4vw, 28px);
+    margin-bottom: 18px;
+}
+
+.heading h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+}
+
+.heading h2 {
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.heading p,
+.heading strong {
+    color: var(--text);
+}
+
+.heading img {
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.28);
+}
+
+.heading ol {
+    list-style: none;
+    counter-reset: steps;
+    padding-left: 26px;
+    margin-bottom: 0;
+}
+
+.heading li {
+    counter-increment: steps;
+    padding: 16px 18px 16px 26px;
+    font-size: 1rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.72);
+    margin: 0;
+    position: relative;
+    color: var(--text);
+}
+
+.heading ol li::before {
+    top: 50%;
+    content: counter(steps);
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-strong) 100%);
+    position: absolute;
+    width: 2.3rem;
+    height: 2.3rem;
+    color: #03130a;
+    text-align: center;
+    left: -1.1rem;
+    line-height: 2.3rem;
+    transform: translateY(-50%);
+    font-weight: 800;
+    box-shadow: 0 12px 28px rgba(20, 184, 166, 0.28);
+}
+
+footer {
+    height: auto;
+    border: none;
+    background: transparent;
+    padding: 24px 18px 36px;
+}
+
+.footer {
+    background: transparent;
+}
+
+.footer-card {
+    max-width: 1120px;
+    border-radius: 28px;
+    margin: 0 auto;
+    padding: 28px;
+}
+
+.footer-card p,
+.footer-card span,
+.footer-card a {
+    color: var(--muted) !important;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.footer-note {
+    color: var(--muted);
+    margin: 0;
+}
+
+.icon,
+.centericon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    padding: 12px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    filter: invert(100%);
+}
+
+.centericon {
+    width: 58px;
+    height: 58px;
+}
+
+.utility-link {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 16px 18px;
+    }
+
+    .brand-tagline {
+        font-size: 0.74rem;
+    }
+
+    .landing-shell {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .hero-stat {
+        min-width: calc(50% - 8px);
+    }
+
+    .heading {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .generator-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .heading ol {
+        padding-left: 22px;
+    }
+
+    .heading li {
+        font-size: 0.95rem;
+        padding-left: 22px;
+    }
+
+    .heading ol li::before {
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        left: -1rem;
+    }
+
+    svg {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .footer-card {
+        padding: 22px 18px;
+    }
+}
